@@ -1,7 +1,6 @@
 .footer{
     bottom:0px;
-    margin-left:5%;
-    margin-right: 5%;
+    margin-left:10%;
 }
 
 .footer-container{
@@ -16,10 +15,10 @@
 .column{
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content:flex-start;
     color: #979797;
     font-size: 16px;
-    padding: 20px;
+    padding: 15px;
 }
 
 .Oasis-link{
