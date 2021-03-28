@@ -6,6 +6,7 @@ const Footer = () => {
   return (
     <div className="container">
       <div className="row">
+      <div className="footer">
         <div className="footer-container">
           <div className="column">
             <span>Oasis Farm Waterloo is a project</span>
@@ -65,6 +66,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
