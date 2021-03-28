@@ -4,15 +4,17 @@ import "./Header.css";
 
 const Header = () => {
   return (
-      <nav className="navbar container headerContainer">
-          <div className="row">
+    <div className=" container">
+      <div className="row">
+      <nav className="navbar headerContainer">
           <img
             src="http://oasisfarmwaterloo.org/wp-content/uploads/2016/06/Website-Logo-Header2-e1465860590865.png"
             className="d-inline-block align-top"
             alt="oasis farm brand image"
           />
-          </div>
       </nav>
+      </div>
+      </div>
   );
 };
 
