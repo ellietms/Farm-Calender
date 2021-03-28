@@ -1,0 +1,37 @@
+.footer-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #2e2e2e;
+    width: 100%;
+    bottom: 0;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    color: #979797;
+    font-size: 16px;
+    padding: 20px;
+}
+
+.Oasis-link{
+    color: #fff;
+    font-weight: bold;
+}
+
+.Oasis-link:hover{
+    color: #fff;
+}
+
+.Oasis-SocialMedia{
+    display: flex;
+    justify-content: left;
+    padding: 5px;
+}
+
+.Oasis-info{
+    display: inline-block;
+    padding: 2px;
+}
