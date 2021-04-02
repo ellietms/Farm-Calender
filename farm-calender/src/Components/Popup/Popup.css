@@ -1,0 +1,22 @@
+.form-popup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-container{
+    display: flex;
+    justify-content: center;
+}
+
+.full-name{
+
+}
+
+.email{
+
+}
+
+.label{
+    font-weight: bolder;
+}
