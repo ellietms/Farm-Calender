@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 
-const PopupWindow = () => {
+const PopupWindow = ({handlePopup,title}) => {
   const [show, setShow] = useState(false);
   const handleClose = (event) => {
     event.preventDefault(); 
@@ -15,7 +15,7 @@ const PopupWindow = () => {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        test
+        {title}
       </Button>
 
       <Modal show={show} onHide={handleClose}>
@@ -36,7 +36,7 @@ const PopupWindow = () => {
               </Form.Text>
             </Form.Group>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button variant="secondary" onClick={() => {handleClose(); handlePopup()}}>
                 Close
               </Button>
               <Button variant="primary" type="submit" onClick={handleClose}>

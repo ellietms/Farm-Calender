@@ -1,4 +1,4 @@
-import React , {useEffect} from "react";
+import React , {useEffect, useState} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -8,14 +8,18 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 
 const CalenderPage = () => {
+  const [showPopup,setShowPopup]=useState(false);
+  const handlePopup = () => setShowPopup(false);
   const handleEvent = (info) => {
+    setShowPopup(true);
+    console.log("I am working");
+    console.log(showPopup);
     info.jsEvent.preventDefault();
-     if(info.event.title === "Morning") {
-        // <Popup/>
-        alert("Morning");
-    }
-    else{
-      alert("Evening")
+     if(showPopup === true) {
+       <Popup 
+       handlePopup={handlePopup}
+       title={info.event.title}
+       />
     }
   }
   return (
