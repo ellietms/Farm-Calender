@@ -11,9 +11,8 @@ const CalenderPage = () => {
   const handleEvent = (info) => {
     info.jsEvent.preventDefault();
      if(info.event.title === "Morning") {
-       return(
-        <Popup />
-       )
+        // <Popup/>
+        alert("Morning");
     }
     else{
       alert("Evening")
@@ -33,6 +32,7 @@ const CalenderPage = () => {
           eventClick = {(info) => handleEvent(info)}
         />
       </div>
+      <Popup />
       <Footer />
     </div>
   );
