@@ -1,52 +1,43 @@
-import React, { useState } from "react";
-import { Modal, Button, Form } from "react-bootstrap";
+import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
 
-const PopupWindow = ({handlePopup,title}) => {
-  const [show, setShow] = useState(false);
-  const handleClose = (event) => {
-    event.preventDefault(); 
-    setShow(false);
-  }
-  const handleShow = (event) => {
-    event.preventDefault(); 
-    setShow(true);
-  } 
-
+const PopupWindow = ({info,handlePopup,removeEvent}) => {
   return (
-    <>
-      <Button variant="primary" onClick={handleShow}>
-        {title}
-      </Button>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Book your slot</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>Full Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter your full name" />
-              </Form.Group>
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter your email" />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
-            </Form.Group>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={() => {handleClose(); handlePopup()}}>
-                Close
-              </Button>
-              <Button variant="primary" type="submit" onClick={handleClose}>
-                Submit
-              </Button>
-            </Modal.Footer>
-          </Form>
-        </Modal.Body>
-      </Modal>
-    </>
+    <div className="container">
+      <button type="button" onClick={handlePopup}>
+        Back
+      </button>
+      <div className=""> 
+      {/* {info.event._def.title} */}
+      <form action="" method="get">
+      <div className="form-popup">
+        <div className="">
+        <label for="full-name" className="label">Full name:</label>
+        <input
+          type="text"
+          id="full-name"
+          placeholder="enter your full name"
+          className="full-name"
+          required
+        />
+        </div>
+        <div className="">
+        <label for="email" className="label">Email address:</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="enter your email"
+          className="email"
+          required
+        />
+        </div>
+        <button type="submit">
+          submit
+        </button>
+        </div> 
+        </form>
+        </div>
+    </div>
   );
 };
 
