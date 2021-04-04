@@ -1,47 +1,51 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import Popup from "../Popup/Popup";
+import Info from "../Info/Info";
 import "./CalenderPage.css";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
+import interactionPlugin from "@fullcalendar/interaction"; 
 
 const CalenderPage = () => {
   let mainPage;
-  const [showPopup, setShowPopup] = useState("mainPage");
-  const [info,setInfo] = useState("");
-  const handlePopup = (info) => {
-    info.event._def.defId.remove();
-    console.log("REMOVED")
-    setShowPopup("mainPage");
-    // console.log("REMOVED");
-  }
+  const [showInfo, setShowInfo] = useState("mainPage");
+  const [info, setInfo] = useState("");
   const handleEvent = (info) => {
-    setShowPopup("Popup");
+    setShowInfo("Info");
     setInfo(info);
+     console.log("DATE");
+    console.log("NEW INFO",info);
     info.jsEvent.preventDefault();
   };
-   const removeEvent = (info) => {
-    info.event._def.defId.remove();
+  const handleBackButton = () => {
+    setShowInfo("mainPage");
+  };
+  const removeEvent = (info) => {
+    console.log("REMOVED Working!");
     info.jsEvent.preventDefault();
-    console.log("REMOVED")
-  }
-  if (showPopup === "Popup") {
-    mainPage = 
-    <Popup 
-    handlePopup={handlePopup}
-    info={info}
-    />
-  } 
-  else {
+    info.event._def.defId.remove();
+    setInfo("");
+    console.log("Changed!")
+  };
+  if (showInfo === "Info") {
+    mainPage = (
+      <Info
+        info={info}
+        removeEvent={removeEvent}
+        handleBackButton={handleBackButton}
+      />
+    );
+  } else if (showInfo === "mainPage") {
     mainPage = (
       <div className="container">
         <Header />
         <div className="calender">
           <FullCalendar
-            plugins={[dayGridPlugin]}
+            plugins={[dayGridPlugin, interactionPlugin ]}
             initialView="dayGridMonth"
+            selectable='true'
             events={[
               { title: "Morning", startRecur: "09:00", endRecur: "12:59" },
               { title: "Evening", startRecur: "13:00", endRecur: "17:00" },
@@ -52,12 +56,12 @@ const CalenderPage = () => {
         <Footer />
       </div>
     );
+  } else {
+    <div>
+      <p> HI </p>
+    </div>;
   }
-  return (
-     <div>
-    { mainPage}
-    </div>
-  );
+  return <div>{mainPage}</div>;
 };
 
 export default CalenderPage;
