@@ -3,13 +3,16 @@ import Footer from "../Footer/Footer";
 import "bootstrap/dist/css/bootstrap.css";
 import "./Info.css";
 
-const Info = ({ handleBackButton, removeEvent }) => {
+const Info = ({info,handleBackButton, removeEvent }) => {
   return (
     <div className="container">
       <button type="button" onClick={handleBackButton} className="button">
         Back
       </button>
       <div className="form-container container">
+        <div className="booking-info">
+               {info.event.startTime}
+        </div>
         <form action="" method="get" onSubmit={removeEvent}>
           <div className="form-input">
             <label for="full-name" className="input-label">

@@ -11,12 +11,23 @@ import interactionPlugin from "@fullcalendar/interaction";
 const CalenderPage = () => {
   let mainPage;
   const [showInfo, setShowInfo] = useState("mainPage");
-  const [info, setInfo] = useState("");
+  const [_id,setId] = useState("none");
+  const [events,setEvents] = useState([
+    { title: "Morning",startTime:"06:30", endTime: "09:30", id:{_id},className:"calender-event-morning" , allDay: false},
+    { title: "Evening",startTime:"17:00", endTime: "20:00", id:{_id},className:"calender-event-evening" ,allDay: false}
+  ]);
+  const [info, setInfo] = useState();
   const handleEvent = (info) => {
     setShowInfo("Info");
     setInfo(info);
-     console.log("DATE");
+    if(info.event.title === "Morning"){
+      setId("morning");
+    }
+    else if(info.event.title === "Evening"){
+      setId("evening");
+    }
     console.log("NEW INFO",info);
+    console.log("ID",_id);
     info.jsEvent.preventDefault();
   };
   const handleBackButton = () => {
@@ -25,7 +36,7 @@ const CalenderPage = () => {
   const removeEvent = (info) => {
     console.log("REMOVED Working!");
     info.jsEvent.preventDefault();
-    info.event._def.defId.remove();
+    setEvents(info.event.id === null);
     setInfo("");
     console.log("Changed!")
   };
@@ -42,16 +53,13 @@ const CalenderPage = () => {
       <div className="container">
         <Header />
         <div className="calender">
-          <FullCalendar
+         {_id !== null && <FullCalendar
             plugins={[dayGridPlugin, interactionPlugin ]}
             initialView="dayGridMonth"
             selectable='true'
-            events={[
-              { title: "Morning", startRecur: "09:00", endRecur: "12:59" },
-              { title: "Evening", startRecur: "13:00", endRecur: "17:00" },
-            ]}
+            events={events}
             eventClick={handleEvent}
-          />
+          />}
         </div>
         <Footer />
       </div>
