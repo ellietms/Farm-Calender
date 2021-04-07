@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -11,24 +11,24 @@ import interactionPlugin from "@fullcalendar/interaction";
 const CalenderPage = () => {
   let mainPage;
   const [showInfo, setShowInfo] = useState("mainPage");
-  const [_id,setId] = useState("none");
+  const [_id,setId] = useState();
   const [events,setEvents] = useState([
     { title: "Morning",startTime:"06:30", endTime: "09:30", id:{_id},className:"calender-event-morning" , allDay: false},
     { title: "Evening",startTime:"17:00", endTime: "20:00", id:{_id},className:"calender-event-evening" ,allDay: false}
   ]);
   const [info, setInfo] = useState();
   const handleEvent = (info) => {
-    setShowInfo("Info");
     setInfo(info);
+    setShowInfo("Info");
     if(info.event.title === "Morning"){
       setId("morning");
     }
-    else if(info.event.title === "Evening"){
+    else{
       setId("evening");
     }
-    console.log("NEW INFO",info);
-    console.log("ID",_id);
     info.jsEvent.preventDefault();
+    console.log("INFO",info);
+    console.log(typeof info.event.end);
   };
   const handleBackButton = () => {
     setShowInfo("mainPage");
@@ -36,7 +36,7 @@ const CalenderPage = () => {
   const removeEvent = (info) => {
     console.log("REMOVED Working!");
     info.jsEvent.preventDefault();
-    setEvents(info.event.id === null);
+    setEvents(info.event._id === null);
     setInfo("");
     console.log("Changed!")
   };
@@ -48,18 +48,19 @@ const CalenderPage = () => {
         handleBackButton={handleBackButton}
       />
     );
-  } else if (showInfo === "mainPage") {
+  } 
+  else if (showInfo === "mainPage") {
     mainPage = (
       <div className="container">
         <Header />
         <div className="calender">
-         {_id !== null && <FullCalendar
+         <FullCalendar
             plugins={[dayGridPlugin, interactionPlugin ]}
             initialView="dayGridMonth"
             selectable='true'
             events={events}
             eventClick={handleEvent}
-          />}
+          />  
         </div>
         <Footer />
       </div>
