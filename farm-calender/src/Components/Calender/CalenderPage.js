@@ -1,4 +1,4 @@
-import React, { useState,useEffect} from "react";
+import React, {useState} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -34,9 +34,9 @@ const CalenderPage = () => {
     setShowInfo("mainPage");
   };
   const removeEvent = (info) => {
+    setEvents(info.event.id === "");
+    // info.jsEvent.preventDefault();
     console.log("REMOVED Working!");
-    info.jsEvent.preventDefault();
-    setEvents(info.event._id === null);
     setInfo("");
     console.log("Changed!")
   };

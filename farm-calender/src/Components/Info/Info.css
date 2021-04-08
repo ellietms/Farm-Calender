@@ -1,61 +1,26 @@
 .button{
     padding: 10px;
-    margin: 10px 10px;
+    margin-left: 100px;
+    margin-bottom: 10px;
     border-radius: 10px ;
-    background-color:  rgb(165,10,50);
+    border: 1px solid white;
+    background-color:  rgb(53,20,18);
     color: white;
 }
 
 .form-container{
     border-radius: 10px;
-    margin-left: auto;
+    margin-left: 100px;
     margin-right: auto;
     margin-bottom:40px;
-    margin-top: 60px;
+    margin-top: 10px;
     padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content:flex-start;
-    width: 80%;
-    
-}
-
-.form-input{
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
-.input-label{
-    padding: 10px;
-    font-weight: bolder;
-}
-
-.booking-info{
-    display: flex;
-    flex-direction: column;
-    justify-content:start;
-    color: black;
-}
-
-.table-booking{
-    border-radius: 20px;
-    width: 100%;
-    background-color: rgb(53, 20, 18);
+    background-color:  rgb(53,20,18);
     color: white;
-}
-
-.table-booking-1{
-    border-bottom: 10px solid white;
-    width: 100%;
-    margin-bottom: 10px;
-    padding-left: 10px;
-}
-
-.input-box{
-    width:35%;
-    height: 50px;
-    border-radius: 10px;
+    font-family: 'Libre Baskerville', serif;
 }
 
 .footer{
@@ -66,4 +31,24 @@
 
 .submit-button{
     margin-left: 50%;
+}
+
+
+.booking-details{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgb(44, 5, 5);
+    border-radius: 20px;
+    color: white;
+    width: ;
+    padding: 50px;
+    margin-left:100px;
+    margin-right: auto;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.form-date{
+    font-family: 'Libre Baskerville', serif;
 }
