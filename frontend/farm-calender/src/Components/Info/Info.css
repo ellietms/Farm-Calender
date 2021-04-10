@@ -1,0 +1,54 @@
+.button{
+    padding: 10px;
+    margin-left: 100px;
+    margin-bottom: 10px;
+    border-radius: 10px ;
+    border: 1px solid white;
+    background-color:  rgb(53,20,18);
+    color: white;
+}
+
+.form-container{
+    border-radius: 10px;
+    margin-left: 100px;
+    margin-right: auto;
+    margin-bottom:40px;
+    margin-top: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    background-color:  rgb(53,20,18);
+    color: white;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.footer{
+    margin-bottom: 0%;
+    bottom: 0;
+    width: 100%;
+}
+
+.submit-button{
+    margin-left: 50%;
+}
+
+
+.booking-details{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgb(44, 5, 5);
+    border-radius: 20px;
+    color: white;
+    width: ;
+    padding: 50px;
+    margin-left:100px;
+    margin-right: auto;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.form-date{
+    font-family: 'Libre Baskerville', serif;
+}
