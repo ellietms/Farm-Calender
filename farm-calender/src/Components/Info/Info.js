@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import Moment from "react-moment";
 import "./Info.css";
 
-const Info = ({ info, handleBackButton, removeEvent }) => {
+const Info = ({ info, handleBackButton, removeEvent , handleEmail , email , fullname , handleName}) => {
   return (
     <div className="container">
       <Header/>
@@ -32,11 +32,13 @@ const Info = ({ info, handleBackButton, removeEvent }) => {
           </Moment>
         </p>
           <div className="form-group">
-            <label for="exampleInputPassword1">Name</label>
+            <label for="exampleInputName">Full name</label>
             <input
-              type="password"
+              type="text"
               className="form-control"
-              id="exampleInputPassword1"
+              id="exampleInputName"
+              value={fullname}
+              onChange={(event) => {console.log("Name",event.target.value);handleName(event)}}
               placeholder="Enter your full name"
             />
           </div>
@@ -47,6 +49,8 @@ const Info = ({ info, handleBackButton, removeEvent }) => {
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              value={email}
+              onChange={(event) => {console.log("Email",event.target.value);handleEmail(event)}}
               placeholder="Enter your email address"
             />
             <small id="emailHelp" className="form-text text-muted">
