@@ -25,7 +25,7 @@ const Info = ({ info, handleBackButton, removeEvent , handleEmail , email , full
         </p>
       </div>
       <div className="form-container">
-        <form className="container " onSubmit={removeEvent}>
+        <form method="POST" action="/user-info" className="container " onSubmit={removeEvent}>
         <p className="form-date">
           <Moment format="D MMM YYYY" withTitle>
             {info.event.start}
