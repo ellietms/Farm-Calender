@@ -1,25 +1,16 @@
 const mongodb = require("mongodb");
 const express = require('express');
 const bodyParser = require('body-parser');
-const exphbs = require('express-handlebars');
-const nodemailer = require("nodemailer");
-
 const app = express();
-
-// view engine setup
-app.engine('handlbars',exphbs);
-app.set('view engine', 'handlebars');
-
-
+const PORT = process.env.PORT || 5000;
 
 app.get("/info",(req,res) => {
     res.send("I am working :P ");
 })
 
-app.post("/user-info",(req,res) => {
-    console.log("ELLIIEEEE");
+app.get("/user-info",(req,res) => {
+    console.log("Hellllooooo ELLIIEEEE");
 })
 
 
-
-app.listen(3001, () => console.log("It is starting ..."));
+app.listen(PORT, () => console.log("It is starting ..."));
