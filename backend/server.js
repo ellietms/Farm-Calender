@@ -1,7 +1,7 @@
+const mongodb = require("mongodb");
 const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
-const mongodb = require("mongodb");
 const nodemailer = require("nodemailer");
 
 const app = express();
