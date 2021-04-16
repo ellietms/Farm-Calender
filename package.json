@@ -1,0 +1,23 @@
+{
+  "name": "farm-calender",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"npm run server",
+    "server": "npm run start --prefix backend",
+    "client": "npm run start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ellietms/Farm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ellietms/Farm/issues"
+  },
+  "homepage": "https://github.com/ellietms/Farm#readme"
+}
